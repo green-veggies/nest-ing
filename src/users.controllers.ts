@@ -8,7 +8,7 @@ export class UserController{
 
     @Get("/profiles")
     getProfiles(@Req() req:Request) {
-        console.log(req.body);
+        // console.log(req.body);
         
         return {
             name : "Aditya",
