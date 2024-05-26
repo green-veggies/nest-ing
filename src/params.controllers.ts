@@ -1,4 +1,5 @@
-import { Controller, Get, Param ,Query} from '@nestjs/common';
+import { Controller, Get, Param ,Query,Headers} from '@nestjs/common';
+import { Agent } from 'http';
 
 interface videoParams{
     id:number,
@@ -15,8 +16,8 @@ export class paramsControllers {
   }
 
   @Get('query/')
-  getQuery(@Query() query:Record<string,any>){
-    console.log(query)
+  getQuery(@Query() query:Record<string,any>,@Headers() headers:Record<string,any>){
+    console.log(`Query params: `,query, `Headers: `,headers)
     return "Query Success";
   }
 }
