@@ -1,12 +1,22 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param ,Query} from '@nestjs/common';
 
-@Controller('/param')
+interface videoParams{
+    id:number,
+    name:string
+};
+@Controller('/url')
 export class paramsControllers {
-  @Get('/id/:id')
-  getParams(@Param() params: Record<string, any>) {
-    console.log(params.id);
+  @Get('params/:id/:name')
+  getParams(@Param() params: videoParams ) {
+    console.log(params.name,params.id);
     return {
-      message: 'success',
+      message: 'Param success',
     };
+  }
+
+  @Get('query/')
+  getQuery(@Query() query:Record<string,any>){
+    console.log(query)
+    return "Query Success";
   }
 }
