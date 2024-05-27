@@ -1,5 +1,4 @@
 import { Controller, Get, Param ,Query,Headers} from '@nestjs/common';
-import { Agent } from 'http';
 
 interface videoParams{
     id:number,
