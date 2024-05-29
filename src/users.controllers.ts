@@ -8,6 +8,7 @@ import {
   Res,
   Header,
   Redirect,
+  Ip,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
 
@@ -55,5 +56,12 @@ export class UserController {
   @Get('/wallet')
   userWallet() {
     return '<h1>This is redirected path to wallets</h1>';
+  }
+  @Get("/ip")
+  getIp(@Ip() ip:string){
+    return{
+      success:true,
+      data:ip
+    }
   }
 }
